@@ -6,4 +6,3 @@ this is a project made by four people
 3 => Muhib Ullah Khan
 4 => Syed Yaseen Jamal
 this line is from vscode 
-this is add
