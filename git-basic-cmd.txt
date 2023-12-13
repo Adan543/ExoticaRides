@@ -1,0 +1,15 @@
+git basic cammands
+
+git clone <https adrees of remote reop> => download a remote repo to your local machine
+git pull =>  download latest code from you current branch
+git push => puch your code to branch 
+git commit =m"your massage" => add you code to git version controll so it can track it 
+git add => add your code to stagging area so it can be commited later (git add .)->add all changed files to sttaging
+
+
+Branches
+
+git branch => to check on which your are currently on
+git checkout < branch name > => convert or move to that branch
+git checkout -b < new branch name > => create a branch with that name 
+
