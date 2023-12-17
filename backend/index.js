@@ -2,11 +2,11 @@ const {Sequelize, DataTypes} = require("sequelize");
 const sequelize = new Sequelize(
  'exoticaridesdb',
  'root',
- '123',
+ '12345',
   {
     host: '127.0.0.1',
     dialect: 'mysql',
-    port:'3308'
+    port:'3306'
   }
 );
 
@@ -19,22 +19,7 @@ sequelize.authenticate().then(() => {
  });
 
  
-const Book = sequelize.define("books", {
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  author: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  release_date: {
-    type: DataTypes.DATEONLY,
-  },
-  subject: {
-    type: DataTypes.INTEGER,
-  }
-});
+
 
 sequelize.sync().then(() => {
   console.log('Book table created successfully!');
