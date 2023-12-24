@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       customer.belongsTo(models.books, { foreignKey: 'customer_user_id' });
     }
   }
-  customer_info.init({
+  customer.init({
     customer_user_id: DataTypes.STRING,
     CNIC: DataTypes.STRING,
     address: DataTypes.STRING,

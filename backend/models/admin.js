@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const {Model} = require('sequelize');
 const customer = require('./customer');
 module.exports = (sequelize, DataTypes) => {
   class admin extends Model {

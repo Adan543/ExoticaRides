@@ -14,9 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   company.init({
+    company_id:{
+      type: DataTypes.INTEGER,
+      primaryKey: true
+  },
     company_name: DataTypes.STRING
   }, {
     sequelize,
+    timestamps: false,
     tableName: 'company',
     modelName: 'company',
   });

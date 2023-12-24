@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       user_credential.hasOne(models.user, { foreignKey: 'user_name' });
     }
   }
-  user_credentials.init({
+  user_credential.init({
     user_name: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
