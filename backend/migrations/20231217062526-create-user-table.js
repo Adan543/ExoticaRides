@@ -19,13 +19,6 @@ module.exports = {
           model: 'user_credentials',
           key: 'user_name'
         }
-      },createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },
