@@ -1,0 +1,225 @@
+/*GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@font-face {
+    font-family: Tangerine;
+    src: url(../assets/Tangerine.ttf);
+}
+
+.LoginSignUp-main-container{  
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.LoginPage_BackgroundVideo{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    filter: brightness(85%);
+    object-fit: cover;
+    z-index: -1;
+}
+
+.main_heading-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exotica_rides-main-heading-css{
+    letter-spacing: 2px;
+    color: white;
+    font-family: 'Allura', cursive;
+    font-size: 122px;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+
+.exotica_rides-main-heading-css:hover{
+    text-shadow: 3px 3px 3px #acacaf;
+    transform: scale(1.1);
+}
+
+#exotica_rides-sub-heading{
+    color: #dadbe5;
+    font-family: Tangerine;
+    font-weight: normal;
+    font-size: 50px;
+}
+
+.LoginSignUp_page_content-container{
+    margin: 0;
+    padding: 0;
+}
+
+.Page_right-content-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.form--hidden{
+    display: none;
+}
+
+.LoginForm-main-container{
+    animation: fadeIn 2s;
+    border-radius: 50px;
+    width: 70%;
+    height: 78%;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.LoginForm_header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.LoginForm_header h1{
+    font-family: 'Allura', cursive;
+    font-size: 72px;
+    color: white;
+    font-weight: 800;
+
+}
+
+.LoginForm_input-fields-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.LoginForm-input-field{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.LoginForm-input-field label{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 23px;
+    color: white;
+}
+
+.LoginForm-input-field input{
+    color: white;
+    width: 24vw;
+    padding: 5px 30px;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    border: none;
+    border-bottom: 2px solid white;
+    transition: 0.3s all ease-in-out;
+}
+
+.LoginForm-input-field input::placeholder{
+    color: rgb(231, 231, 231);
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.form_input-field-container{
+    display: flex;
+    transition: 0.3s all ease-in-out;
+}
+
+.form_input-field-container:hover{
+    transform: scale(1.1);
+}
+
+.form_input-field-container:hover input{
+    border-bottom: 2px solid #05c1ae;
+}
+
+.icon{
+    padding-top: 8px;
+    width: 22px;
+    position: absolute;
+}
+ 
+.btn-grad {
+    background-image: linear-gradient(to right, #757F9A 0%, #D7DDE8  51%, #757F9A  100%);
+    width: 23vw;
+    padding: 10px 0px;
+    border: none;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 5px #eee;
+    border-radius: 10px;
+    display: block;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: bolder;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; 
+    color: #fff;
+    box-shadow: 0 0 10px #eee;
+    text-decoration: none;
+  }
+ 
+.questionOR-container{
+    display: flex;
+    justify-content: center;
+}
+
+.SignUp_a-link{
+    position: relative;
+    text-decoration: none;
+    color: rgb(210, 213, 229);
+    padding: 0px 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.SignUp_a-link:hover{
+    text-decoration: none;
+    transform: translateY(-10px);
+    color: #05c1ae;
+}
+
+/*SIGN UP FORM TWEAKS*/
+.signUp_form-label-tweaks{
+    font-size: 20px !important;
+}
+.signUp_form-input-tweaks{
+    font-size: 15px !important;
+}
+
+.SignForm_input-fields-container-tweaks{
+    gap: 15px;
+    margin-top: 0px;
+
+}
