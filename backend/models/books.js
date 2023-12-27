@@ -15,13 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   books.init({
-    customer_user_id: DataTypes.STRING,
+    customer_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     license_no: DataTypes.STRING,
     booking_date: DataTypes.STRING,
     due_date: DataTypes.STRING,
     return: DataTypes.DATE
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'books',
     modelName: 'books',
   });
   return books;
