@@ -15,10 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   keeps_track_of.init({
-    customer_user_id: DataTypes.STRING,
-    admin_user_id: DataTypes.STRING
+    customer_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
+    admin_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  }
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'keeps_track_of',
     modelName: 'keeps_track_of',
   });
   return keeps_track_of;

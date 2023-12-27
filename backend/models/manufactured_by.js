@@ -14,10 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   manufactured_by.init({
-    license_no: DataTypes.STRING,
+    license_no: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     company_id: DataTypes.INTEGER
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'manufactured_by',
     modelName: 'manufactured_by',
   });
   return manufactured_by;

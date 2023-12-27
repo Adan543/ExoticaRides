@@ -16,12 +16,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   customer.init({
-    customer_user_id: DataTypes.STRING,
+    customer_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     CNIC: DataTypes.STRING,
     address: DataTypes.STRING,
     customer_name: DataTypes.STRING
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'customer',
     modelName: 'customer',
   });
   return customer;

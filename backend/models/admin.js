@@ -15,10 +15,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   admin.init({
-    admin_user_id: DataTypes.STRING,
+    admin_user_id:{
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     secret_key: DataTypes.STRING
   }, {
     sequelize,
+    timestamps:false,
     tableName:'admin',
     modelName: 'admin',
   });
