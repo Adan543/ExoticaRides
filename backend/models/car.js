@@ -17,10 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   car.init({
-    license_no: DataTypes.STRING,
+    license_no:{
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     car_name: DataTypes.STRING
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'car',
     modelName: 'car',
   });
   return car;

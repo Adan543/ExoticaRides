@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "db.model": "nodemon server.js",
+    "start": "nodemon server.js",
+    "migration": "npx sequelize-cli db:migrate",
+    "start.db": "nodemon models/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

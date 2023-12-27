@@ -14,13 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   car_info.init({
-    car_name: DataTypes.STRING,
+    car_name:{
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     car_type: DataTypes.STRING,
     engine_cc: DataTypes.STRING,
     transmission: DataTypes.STRING,
     car_rate: DataTypes.INTEGER
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'car_info',
     modelName: 'car_info',
   });
   return car_info;
