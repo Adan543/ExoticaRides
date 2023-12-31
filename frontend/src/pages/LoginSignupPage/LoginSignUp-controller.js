@@ -13,3 +13,4 @@ export function LoginToSignUp() {
     LoginForm.classList.remove("form--hidden");
     SignUpForm.classList.add("form--hidden");
 }
+

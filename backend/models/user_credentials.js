@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      user_credential.hasOne(models.user, { foreignKey: 'user_name' });
+      user_credential.hasOne(models.user, { foreignKey: 'email' });
     }
   }
   user_credential.init({
-    user_name: {
+    email: {
       type: DataTypes.STRING,
       primaryKey: true
   },
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     timestamps: false,
-    tableName: 'user_credential',
+    tableName: 'user_credentials',
     modelName: 'user_credential',
   });
   return user_credential;

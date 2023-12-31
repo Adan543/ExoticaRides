@@ -15,10 +15,10 @@ module.exports = class BaseController {
 
     async List (req, res){
         this.model = db[this.model];
-        console.log(req.body);
     
+        
         let a = await this.model.findOne()
-        res.status('200').send(a)
+        res.status('200').send(req.body)
     }
 
 

@@ -17,6 +17,9 @@ module.exports = {
       transmission: {
         type: Sequelize.STRING
       },
+      color: {
+        type: Sequelize.STRING
+      },
       car_rate: {
         type: Sequelize.INTEGER
       }
