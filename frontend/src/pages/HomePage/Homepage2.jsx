@@ -1,13 +1,31 @@
 import React from 'react'
+import { useState,useEffect } from 'react'
 import NavBar from '../../components/Navbar/Navbar'
 import LandingScreenVideo from '../assets/LandingScreen_video.mp4'
 import CollagePic1 from '../assets/about_us-1.jpg'
 import CollagePic2 from '../assets/about_us-2.jpg'
 import CollagePic3 from '../assets/about_us-3.jpg'
 import './Homepage2.css'
+import axios from 'axios';
 
 
 const Homepage2 = () => {
+  const [data,setData] = useState("")
+  const getData=async()=>{
+    const resp  = await axios.get('http://localhost:8080/user/getuser')
+    setData(resp.data)
+
+  }
+  useEffect(()=>{
+    getData()
+  },[])
+// useEffect(()=>{
+//   fetch('http://localhost:8080/user/getuser')
+//   .then(res=>res.json())
+//   .then(data => setData(data))
+//   .catch(err => console.log(err))
+// })
+
   return (
     <div className='main-container'>
       <NavBar className='navbar_landingScreen'/>
@@ -20,7 +38,7 @@ const Homepage2 = () => {
           <div className="Landing-screen-content-container">
             <div className="heading_container">
               <h1 style={{ fontSize: '42px', marginBottom: '20px' }}>Welcome,</h1>
-              <h1>Jawwad Kareem</h1>
+              <h1>{data}</h1>
             </div>
             <div className="LS_button-container">
               <button className="learn-more">

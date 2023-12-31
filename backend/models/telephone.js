@@ -11,13 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      
     }
   }
   telephone.init({
-    customer_user_id: DataTypes.STRING,
-    tel_no: DataTypes.INTEGER
+    customer_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
+    tel_no: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+  },
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'telephone',
     modelName: 'telephone',
   });
   return telephone;

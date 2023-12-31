@@ -10,18 +10,24 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      customer.hasOne(models.user, { foreignKey: 'user_id' });
+      customer.belongsTo(models.user, { foreignKey: 'customer_user_id' });
+      // customer.belongsTo(models.user);
       customer.belongsTo(models.keeps_track_of, { foreignKey: 'customer_user_id' });
       customer.belongsTo(models.books, { foreignKey: 'customer_user_id' });
     }
   }
   customer.init({
-    customer_user_id: DataTypes.STRING,
+    customer_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
     CNIC: DataTypes.STRING,
     address: DataTypes.STRING,
     customer_name: DataTypes.STRING
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'customer',
     modelName: 'customer',
   });
   return customer;

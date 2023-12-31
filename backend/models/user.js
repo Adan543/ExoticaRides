@@ -10,14 +10,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      user.hasOne(models.user_credential, { foreignKey: 'user_name' });
-      user.belongsTo(models.customer, { foreignKey: 'customer_user_id' });
-      user.belongsTo(models.admin, { foreignKey: 'admin_user_id' });
+      user.belongsTo(models.user_credential, { foreignKey: 'email' });
+      // user.hasOne(models.customer, { foreignKey: 'customer_user_id' });
+      user.hasOne(models.customer, { foreignKey: 'customer_user_id' });
+      user.hasOne(models.admin, { foreignKey: 'admin_user_id' });
     }
   }
   user.init({
-    user_id: DataTypes.STRING,
-    user_name: DataTypes.STRING
+    user_id:{
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
+    email: DataTypes.STRING
   }, {
     sequelize,
     timestamps: false,

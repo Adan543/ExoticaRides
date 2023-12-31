@@ -15,10 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   maintains.init({
-    license_no: DataTypes.STRING,
-    admin_user_id: DataTypes.STRING
+    license_no: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
+    admin_user_id: {
+      type: DataTypes.STRING,
+      primaryKey: true
+  },
   }, {
     sequelize,
+    timestamps:false,
+    tableName:'maintains',
     modelName: 'maintains',
   });
   return maintains;

@@ -1,19 +1,28 @@
 const db = require('../models')
+const BaseController = require('./base.controller');
 
+module.exports = class ComapnyController extends BaseController {
+
+
+    constructor() {
+        /** set bill details model */
+        super('company');
+
+    }
+
+async getcompany (req, res) {
 const company = db['company']
-
-const getcompany = async (req, res) =>{
-
     console.log(req.body);
     req.body
-    let a = await company.findOne({ where: { company_name: req.body.company_name } })
+    let a = await company.findOne()
     res.status('200').send(a)
 }
 
-const createcompany = async (req, res) =>{
+async createcompany (req, res) {
 
     console.log(req.body);
-    req.body
+    // res.status('200').send(req.body)
+    // res.send('200').send(req.body)
     if (req.body.company_id) {
         let a = await company.create(req.body)
     res.status('200').send(a)
@@ -22,7 +31,5 @@ const createcompany = async (req, res) =>{
 }
 
 
-module.exports  = {
-    getcompany,
-    createcompany
+    
 }
