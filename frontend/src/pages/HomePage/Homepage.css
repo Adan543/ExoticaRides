@@ -1,44 +1,177 @@
-/*GOOGLE FONTS*/
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-
-@font-face{
-    font-family: 'AkiraExpanded';
-    src: url('../assets/Akira\ Expanded\ Demo.otf');
+/*FONTS TO BE USED*/
+@font-face {
+    font-family: AkiraExpanded;
+    src: url(../assets/Akira\ Expanded\ Demo.otf);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
+/*ANIMATIONS KEYFRAMES*/
+@keyframes fadeInUserName {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
 
+    }
+}
 
+@keyframes fadeInBTN {
+    0% {
+        opacity: 0;
+        transform: translateY(150px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
 
+/*LANDING SCREEN CSS START*/
+.Landing_screen-main-container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
 
+.Landing_screen-BackgroundVideo {
+    position: relative;
+    z-index: 0;
+    width: 100vw;
+    height: 92vh;
+    object-fit: cover;
+}
 
+.Landing-screen-content-container{
+    position: absolute;
+    height: 75%;
+    top: 20%;
+    left: 4%;
+    z-index: 1;
+}
 
+.Landing-screen-content-container h1 {
+    opacity: 0;
+    color: white;
+    animation: fadeInUserName 2s forwards;
+    animation-delay: 2s;
+    text-shadow: 5px 5px 5px black;
+    font-family: 'AkiraExpanded';
+    font-size: 65px;
+}
 
+.Landing-screen_button-container {
+    position: absolute;
+    top: 50%;
+}
 
+.copyright{
+    opacity: 0;
+    animation: fadeInBTN 2s forwards;
+    animation-delay: 2s;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 32%;
+    color: rgb(118, 118, 118);
+}
 
+/*DONT TOUCH THIS CODE */
+.landing_screen-get-started {
+    opacity: 0;
+    animation: fadeInBTN 2s forwards;
+    animation-delay: 2s;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    width: 12rem;
+    height: auto;
+}
 
+.landing_screen-get-started  .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    box-shadow: 0 0 5px 1px white;
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
 
+.landing_screen-get-started .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
 
+.landing_screen-get-started .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
 
+.landing_screen-get-started .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.04rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
 
+.landing_screen-get-started .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: rgba(236, 245, 255, 0.807);
+    text-align: center;
+    text-transform: uppercase;
+}
 
+.landing_screen-get-started:hover .circle {
+    width: 100%;
+    box-shadow: 0 0 5px 2px white;
+}
 
+.landing_screen-get-started:hover .button-text {
+    transform: translate(-1.7rem, 0);
+    color: #fff;
+}
 
+.landing_screen-get-started:hover .circle .icon.arrow {
+    transform: translate(8rem, 0);
+}
+/*DONT TOUCH THIS CODE ENDS*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*LANDING SCREEN CSS END*/
 

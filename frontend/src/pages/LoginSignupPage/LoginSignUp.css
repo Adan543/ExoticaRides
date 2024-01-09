@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Gantari:wght@400;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
@@ -27,7 +25,7 @@
     z-index: -1;
 }
 
-.main_heading-container{
+.LoginPage-main_heading-container{
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -63,7 +61,7 @@
     padding: 0;
 }
 
-.Page_right-content-container{
+.LoginPage_right-content-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,12 +99,11 @@
     padding-top: 20px;
 }
 
-.LoginForm_header h1{
+.LoginSignUp-heading{
     font-family: 'Allura', cursive;
     font-size: 72px;
     color: white;
     font-weight: 800;
-
 }
 
 .LoginForm_input-fields-container{
@@ -115,7 +112,6 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
- 
 }
 
 .LoginForm-input-field{
@@ -221,5 +217,4 @@
 .SignForm_input-fields-container-tweaks{
     gap: 15px;
     margin-top: 0px;
-
 }

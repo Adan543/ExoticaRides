@@ -3,16 +3,16 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('manufactured_by', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       license_no: {
+        primaryKey: true,
         type: Sequelize.STRING
       },
       company_id: {
+        type: Sequelize.INTEGER
+        ,allowNull: false
+
+      },
+      manufacture_year: {
         type: Sequelize.INTEGER
       }
     });

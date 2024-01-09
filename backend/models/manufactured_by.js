@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
   },
-    company_id: DataTypes.INTEGER
+    company_id: DataTypes.INTEGER,
+    manufactured_by:DataTypes.INTEGER
   }, {
     sequelize,
     timestamps:false,

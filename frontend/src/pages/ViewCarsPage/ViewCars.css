@@ -1,0 +1,228 @@
+/*Fonts to be Used*/
+@font-face {
+  font-family: AkiraExpanded;
+  src: url(../assets/Akira\ Expanded\ Demo.otf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+/*DECLARING KEYFRAMES FOR ANIMATIONS*/
+@keyframes fadeInHeader {
+  0% {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateX(0px);
+  }
+}
+
+@keyframes fadeInFilter {
+  0% {
+      opacity: 0;
+      transform: translateX(100px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0px);
+  }
+}
+
+/*CSS START*/
+.main_head-container {
+  height: 100%;
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.background-video-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.lol{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(40%);
+}
+
+.heading_content-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 12%;
+  animation: fadeInHeader 2s forwards;
+}
+
+.heading_content-container h1{
+  font-family: 'AkiraExpanded';
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
+.heading_content-container h5{
+  font-family: 'Allura';
+  font-size: 2rem;
+  color: white;
+}
+
+.cars_main-row{
+  margin-top: 12rem;
+  padding:  10px 50px 0px 50px;
+}
+
+.cars_card-main-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 75px 0px 40px;
+}
+
+.filter_card-hero-container{
+  animation: fadeIn 2s;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 20px;
+  height: 600px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.filter_card-heading-container h1{
+  font-family: 'Allura';
+  font-weight: bold;
+  color: #05c1ae;
+  font-size: 42px;
+}
+
+.filter_fields-container{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.filter_fields-container label{
+  color: white;
+  font-weight: 700;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.filter_fields-container input{
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  outline: none;
+  padding: 8px 15px;
+}
+
+.filter_fields-container input::placeholder{
+  color: white;
+}
+
+.RangeSlider{
+  width: 100%;
+  border-radius: 50px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.RangeSlider .thumb{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid #5ac1ae;
+  border-radius: 50%;
+  top: -9px;
+  outline: none;
+}
+
+.value{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.rangeSlider_value-display{
+  color: white;
+  background-color: transparent;
+  font-family: 'Comfortaa', sans-serif;
+  border: 2px solid white;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+
+.car_type-BTN{
+  background: transparent;
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.PaginationContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+}
+
+.PaginationContainer a{
+  font-family: "Comfortaa";
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background: rgba(0,0,0,0.3);
+  color: rgb(255, 255, 255);
+  transition: 0.1s all ease-in-out;
+}
+
+.PaginationContainer a:hover{
+  background: #05c1ae;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
