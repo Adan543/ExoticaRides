@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './LoginSignUp.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import videoBg from '../assets/haha.mp4'
+import LoginPagevideoBg from '../assets/LoginPage_video.mp4'
 import FirstNameIcon from '../assets/firstname.png'
 import LastNameIcon from '../assets/lastname.png'
 import EmailIcon from '../assets/email.png'
@@ -13,36 +13,32 @@ import * as LS from "./LoginSignUp-controller"
 
 
 const LoginSignUp = () => {
+    /*LOGIN SIGNUP AUTHENTICATION*/
     const navigate = useNavigate();
     const [data,setData] = useState({
-        
-
         fname:'',
         lname:'',
         email:'',
         password:'',
     }) 
+
     const handleChange = (event)=>{
-        
         setData({...data,[event.target.name]:[event.target.value]})
     }
+
     const handleSubmit = (event) => {
         event.preventDefault();
-    
         axios.post('http://localhost:8080/user/createuser', { data })
             .then((res) => {
                 if (res.status === 200) {
                     alert(res.data);
-                    
                     LS.SignUpToLogin();
-                }
-                
+                }    
             })
             .catch((error) => {
-                
                 alert(error.response.data);
             });
-    };
+        };
     const handleloginSubmit = (event) => {
         event.preventDefault();
         
@@ -51,35 +47,33 @@ const LoginSignUp = () => {
                 if (res.status === 200) {
                     navigate('/homepage')
                 }
-                
             })
             .catch((error) => {
                 alert(error.response.data);
             });
-    
     }
-    
 
+    /*LOGIN SIGNUP FRONTEND*/
     return (
-        <div className='LoginSignUp_hero-container'>
+        <div>
             <div className="container-fluid">
                 <div className="row">
                     <div className="LoginSignUp-main-container col-lg-12">
                         <video className='LoginPage_BackgroundVideo' autoPlay muted>
-                            <source src={videoBg} type='video/mp4' />
+                            <source src={LoginPagevideoBg} type='video/mp4' />
                         </video>
                         <div className="row LoginSignUp_page_content-container">
                             <div className='Page_left-content-container col-lg-6'>
-                                <div className="main_heading-container">
+                                <div className="LoginPage-main_heading-container">
                                     <h1 className='exotica_rides-main-heading-css'>Exotica Rides</h1>
                                     <h3 className='exotica_rides-main-heading-css' id='exotica_rides-sub-heading'>Unleash Your Inner Voyager, Drive Exotic.</h3>
                                 </div>
                             </div>
-                            <div className="Page_right-content-container col-lg-6">
+                            <div className="LoginPage_right-content-container col-lg-6">
                                 {/* THIS IS LOGIN FORM CODE */}
                                 <div className="LoginForm-main-container" id="LoginForm">
                                     <div className="LoginForm_header">
-                                        <h1>Login Now</h1>
+                                        <h1 className='LoginSignUp-heading'>Login Now</h1>
                                     </div>
                                     <div className="LoginForm_input-fields-container">
                                         <form onSubmit={handleloginSubmit}>
@@ -119,7 +113,7 @@ const LoginSignUp = () => {
                                 {/* THIS IS SIGN UP FORM CODE */}
                                 <div className="LoginForm-main-container form--hidden" id='SignupForm' style={{ height: '93%', overflow: 'hidden' }}>
                                     <div className="LoginForm_header">
-                                        <h1 style={{ fontSize: '52px' }}>Signup Now</h1>
+                                        <h1 style={{ fontSize: '52px' }} className='LoginSignUp-heading'>Signup Now</h1>
                                     </div>
                                     <div className="LoginForm_input-fields-container SignForm_input-fields-container-tweaks">
                                         <form onSubmit={handleSubmit}>

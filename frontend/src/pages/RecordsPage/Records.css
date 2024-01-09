@@ -1,0 +1,14 @@
+.car-card-hero-container{
+    width: 300px;
+    padding: 10px;
+    height: 400px;
+    background-color: beige;
+}
+
+.image-container{
+    position: relative;
+    width: 100%;
+}
+
+
+.content-container{}
