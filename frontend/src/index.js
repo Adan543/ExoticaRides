@@ -5,12 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 //PAGES IMPORT//
-import HomePage from './pages/HomePage/Homepage2';
+import HomePage from './pages/HomePage/Homepage';
 import BookingPage from './pages/BookingsPage/Bookings';
 import ViewCarsPage from './pages/ViewCarsPage/ViewCars';
 import RecordsPage from './pages/RecordsPage/Records';
-
-
 
 //ROUTING WEBSITE IMPORTS
 import {

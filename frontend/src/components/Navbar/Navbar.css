@@ -10,11 +10,13 @@
     background-color: rgb(0, 0, 0);
 }
 
+
 .navbar-brand{
     font-family: 'Allura', cursive;
     font-size: 36px;
     font-weight: bolder;
-    color: rgb(203, 203, 203);
+    margin-left: 30px;
+    color: rgb(255, 255, 255);
     transition: 0.3s all ease-in-out;
 }
 
@@ -33,7 +35,7 @@
 }
 
 .nav-link{
-    color: rgb(203, 203, 203);
+    color: rgb(255, 255, 255);
     letter-spacing: 2px;
     transition: 0.3s all ease-in-out;
 }
