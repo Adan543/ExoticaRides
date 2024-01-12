@@ -79,7 +79,7 @@ const handleSubmit = (event) => {
                 <div className="form_input-fields-container" style={{marginTop:'20px'}}>
                   <div className="each-field-container each-field-container_two-input-width-tweak">
                     <label htmlFor="/">CNIC Number</label>
-                    <input type="text" disabled value={userdata.cnic} onChange = {handleChange} placeholder="42101-1234567-8"/>
+                    <input type="text" disabled value={userdata.CNIC} onChange = {handleChange} placeholder="42101-1234567-8"/>
                   </div>
                   <div className="each-field-container each-field-container_two-input-width-tweak">
                     <label htmlFor="/">Complete Address</label>
