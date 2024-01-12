@@ -4,28 +4,13 @@ import NavBar from '../../components/Navbar/Navbar'
 import LandingScreenVideo from '../assets/LandingScreen_video.mp4'
 import './Homepage.css'
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 
 const Homepage = () => {
-  // const [data,setData] = useState("")
-  // const getData=async()=>{
-  //   const resp  = await axios.get('http://localhost:8080/user/getuser')
-  //   if(resp){    setData(resp.data)}
-  //   else{
-  //     setData("lion")
-  //   }
-
-  // }
-
-  // useEffect(()=>{
-  //   getData()
-  // },[])
-// useEffect(()=>{
-//   fetch('http://localhost:8080/user/getuser')
-//   .then(res=>res.json())
-//   .then(data => setData(data))
-//   .catch(err => console.log(err))
-// })
+  // axios.defaults.withCredentials = true
+  const username = JSON.parse(sessionStorage.getItem('userData')).customer_name;
+  console.log(JSON.parse(sessionStorage.getItem('userData')))
 
   return (
     <div>
@@ -39,7 +24,7 @@ const Homepage = () => {
           <div className="Landing-screen-content-container">
             <div className="landing_screen-heading-container">
               <h1 style={{ fontSize: '42px', marginBottom: '20px' }}>Welcome,</h1>
-              <h1>hello</h1>
+              <h1>{username}</h1>
             </div>
             <div className="Landing-screen_button-container">
               <button className="landing_screen-get-started">

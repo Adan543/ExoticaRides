@@ -1,9 +1,31 @@
 import React from 'react'
 import './CarsCard.css'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const CarsCard = ({ car }) => {
-    const { car_name, car_company, manufacture_year, engine_cc, image, car_type, car_rate } = car
+
+
+    const navigate = useNavigate();
+
+    const {license_no, car_name, car_company, manufacture_year, engine_cc, car_type,image ,car_rate } = car
+
+    const onRentButtonClick = async () => {
+        try {
+           const data = [license_no,car_name,car_company,manufacture_year,engine_cc,car_type,car_rate]
+          // Fetch data from the backend
+          const response = await fetch(`http://localhost:8080/bookings/${data}`);
+          const carData = await response.json();
+            console.log(carData)
+    
+          // Navigate to the booking page and pass data
+          navigate('/bookings', { state: { carData } });
+
+        } catch (error) {
+          console.error("Error fetching data from backend:", error);
+        }
+      };
+    
     return (
         <div className='car-card'>
             <div className="car_card-hero-container">
@@ -38,11 +60,16 @@ const CarsCard = ({ car }) => {
                             </h5>
                         </div>
                         <div className="car_card-rent_BTN-container">
-                                <Link className="nav-link" to="/bookings" class="rent_now-BTN">Rent Now
+                        <button onClick={onRentButtonClick} class="rent_now-BTN" className='nav-link'>Rent</button>
                                     <span class="arrow_rent">
                                         <svg fill="rgb(5,194,174)" viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg>
                                     </span>
-                                </Link>
+                                
+                                {/* <Link className="nav-link" to="/bookings" class="rent_now-BTN">Rent Now
+                                    <span class="arrow_rent">
+                                        <svg fill="rgb(5,194,174)" viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg>
+                                    </span>
+                                </Link> */}
 
                         </div>
                     </div>
