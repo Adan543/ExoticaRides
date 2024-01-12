@@ -6,23 +6,23 @@
     padding: 0px !important;
 }
 
+.Company_logo-nav{
+  width: 180px;
+  padding: 10px;
+}
+
 .navbar_landingScreen{
     background-color: rgb(0, 0, 0);
 }
 
+.UserRecordsNav{
+  background-color: transparent;
+}
 
 .navbar-brand{
-    font-family: 'Allura', cursive;
-    font-size: 36px;
-    font-weight: bolder;
     margin-left: 30px;
     color: rgb(255, 255, 255);
     transition: 0.3s all ease-in-out;
-}
-
-.navbar-brand:hover{
-    color: #05c1ae;
-    letter-spacing: 3px;
 }
 
 .navbar_links-hero-container{
@@ -31,7 +31,7 @@
 }
 
 .nav-item{
-    padding: 10px;
+    padding: 0px 10px;
 }
 
 .nav-link{
@@ -41,7 +41,7 @@
 }
 
 .nav-link:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
     color: #05c1ae;
 }
 

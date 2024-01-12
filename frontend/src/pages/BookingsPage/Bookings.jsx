@@ -5,9 +5,29 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Bookings = () => {
+  //DUMMY DATA
+  const SelectedCarData = [{ CarName: '911 Carrera S', company: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', car_type: 'sedan', car_rate: 500 }]
+
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  const SelectedCarData = [{ CarName: '911 Carrera S', company: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', car_type: 'sedan' }]
+  const [endDate, setEndDate] = useState(new Date().getTime() + 24 * 60 * 60 * 1000);
+
+  // Function to set end date one day greater than start date
+  const setEndDateOneDayGreater = (date) => {
+    const newEndDate = new Date(date);
+    newEndDate.setDate(date.getDate() + 1);
+    setEndDate(newEndDate.getTime());
+  };
+
+  const handleStartDateChange = (date) => {
+    setStartDate(date);
+    setEndDateOneDayGreater(date);
+  };
+
+  //Car rent totl calcultions
+  const timeDifference = endDate - startDate
+  const daysDifference = timeDifference / (1000 * 60 * 60 * 24)
+  const ComputedCarRent = Math.ceil(daysDifference) * SelectedCarData[0].car_rate
+   
   return (
     <div style={{backgroundColor:'grey'}} >
       <div className="booking_header-container">
@@ -42,39 +62,52 @@ const Bookings = () => {
                 <div className="form_input-fields-container" style={{marginTop:'20px'}}>
                   <div className="each-field-container each-field-container_two-input-width-tweak">
                     <label htmlFor="/">CNIC Number</label>
-                    <input type="text" placeholder="42101-1234567-8"/>
+                    <div style={{position:"relative"}}>
+                      <img src={require('../assets/id-card.png')} className="input_field-icon-container" alt="" />
+                      <input type="number" placeholder="42101-1234567-8" required/>
+                    </div>
                   </div>
                   <div className="each-field-container each-field-container_two-input-width-tweak">
                     <label htmlFor="/">Complete Address</label>
-                    <input type="text" placeholder="ABC-ROAD, New York "/>
+                    <div style={{position:"relative"}}>
+                      <img src={require('../assets/book_address.png')} className="input_field-icon-container" alt="" />
+                      <input type="text" placeholder="Apt. 146 56410 Gerhold Streets" required/>
+                    </div>
                   </div>
                 </div>
                 <div className="form_input-fields-container" style={{marginTop: "20px"}}>
                   <div className="each-field-container each-field-container_two-input-width-tweak">
                     <label htmlFor="/">Contact Number</label>
-                    <input type="text" placeholder="0315-2539534"/>
+                    <div style={{position:"relative"}}>
+                      <img src={require('../assets/contact.png')} className="input_field-icon-container" alt="" />
+                      <input type="number" placeholder="+92-315-2539534" required/>
+                    </div>
                   </div>
                   <div className="each-field-container each-field-container_two-input-width-tweak">
                     <label htmlFor="/">Additional Contact Number</label>
-                    <input type="text" placeholder="0315-2539534"/>
+                    <div style={{position:"relative"}}>
+                      <img src={require('../assets/add-contact.png')} className="input_field-icon-container" alt="" />
+                      <input type="number" placeholder="+92-335-6081927"/>
+                    </div>
                   </div>
                 </div>
-                <div className="form_input-fields-container" style={{marginTop: "20px", display:'flex', justifyContent:'center'}}>
+                <div className="form_input-fields-container date-container" style={{marginTop: "20px", display:'flex', justifyContent:'center'}}>
                   <div className="each-field-container" >
                     <label htmlFor="/">Booking Date</label>
-                    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}
+                    <DatePicker selected={startDate} onChange={handleStartDateChange}
                       minDate={new Date()}
                       dateFormat={'dd/MM/yyyy'}
                     />
                   </div>
                   <div className="each-field-container">
                     <label htmlFor="/">Return Date</label>
-                    <DatePicker selected={endDate} onChange={(date) => setEndDate(date)}
-                      minDate={startDate}
+                    <DatePicker selected={endDate} onChange={(date) => setEndDate(date.getTime())}
+                      minDate={new Date(startDate.getTime() + 24 * 60 * 60 * 1000)}
                       dateFormat={'dd/MM/yyyy'}/>
                   </div>
                   <div className="each-field-container">
                     <label htmlFor="/">Car Rent</label>
+                    <input className="booking_form-total-price-input-field" type="text" disabled value={ComputedCarRent + "$"}/>
                   </div>
                 </div>
               </form>
@@ -84,9 +117,9 @@ const Bookings = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-5 booking_form-car_img-container">  
+          <div className="col-lg-5 booking_form-car_img-container">
             <div className="car_image-container" 
-            style={{height:'100%', width:'100%', display:"flex", justifyContent:'center', alignItems:"center"}}>
+              style={{height:'100%', width:'100%', display:"flex", justifyContent:'center', alignItems:"center"}}>
               <img src={require('../../components/assets/heh.png')} alt="" className="booking_car-img"/>
             </div>
           </div>
