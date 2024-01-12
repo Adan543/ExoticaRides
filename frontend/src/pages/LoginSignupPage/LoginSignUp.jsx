@@ -45,6 +45,11 @@ const LoginSignUp = () => {
         axios.post('http://localhost:8080/user/loginauth', { data })
             .then((res) => {
                 if (res.status === 200) {
+                    sessionStorage.setItem('userData', JSON.stringify(res.data));
+                    
+                    // const name = res.data
+                    // console.log(name)
+                    // navigate('/homepage',{state:{name}})
                     navigate('/homepage')
                 }
             })

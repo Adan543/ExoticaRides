@@ -4,9 +4,11 @@ import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
 import './Homepage.css'
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 
 const Homepage = () => {
+<<<<<<< HEAD
   // const [data,setData] = useState("")
   // const getData=async()=>{
   //   const resp  = await axios.get('http://localhost:8080/user/getuser')
@@ -26,6 +28,11 @@ const Homepage = () => {
   //   .then(data => setData(data))
   //   .catch(err => console.log(err))
   // })
+=======
+  // axios.defaults.withCredentials = true
+  const username = JSON.parse(sessionStorage.getItem('userData')).customer_name;
+  console.log(JSON.parse(sessionStorage.getItem('userData')))
+>>>>>>> 85c013bd93cd9d43451a18db7c15e543ecd9a700
 
   return (
     <div>
@@ -39,8 +46,13 @@ const Homepage = () => {
         <Navbar className='navbar_viewcar' />
         <div className="Landing-screen-content-container">
             <div className="landing_screen-heading-container">
+<<<<<<< HEAD
               <h1 style={{ fontSize: '42px', marginBottom: '25px'}}>Welcome,</h1>
               <h1>MUHIB ULLAH</h1>
+=======
+              <h1 style={{ fontSize: '42px', marginBottom: '20px' }}>Welcome,</h1>
+              <h1>{username}</h1>
+>>>>>>> 85c013bd93cd9d43451a18db7c15e543ecd9a700
             </div>
             <div className="Landing-screen_button-container">
               <button className="landing_screen-get-started">
