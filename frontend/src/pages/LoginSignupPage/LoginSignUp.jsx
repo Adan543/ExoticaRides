@@ -19,7 +19,7 @@ const LoginSignUp = () => {
         fname:'',
         lname:'',
         email:'',
-        password:'',
+        password:'',cnic:'',tel_no:''
     }) 
 
     const handleChange = (event)=>{
@@ -39,25 +39,28 @@ const LoginSignUp = () => {
                 alert(error.response.data);
             });
         };
-    const handleloginSubmit = (event) => {
-        event.preventDefault();
-        
-        axios.post('http://localhost:8080/user/loginauth', { data })
-            .then((res) => {
-                if (res.status === 200) {
-                    sessionStorage.setItem('userData', JSON.stringify(res.data));
-                    
-                    // const name = res.data
-                    // console.log(name)
-                    // navigate('/homepage',{state:{name}})
-                    navigate('/homepage')
-                }
-            })
-            .catch((error) => {
-                alert(error.response.data);
-            });
-    }
-
+        const handleloginSubmit = (event) => {
+            event.preventDefault();
+            
+            axios.post('http://localhost:8080/user/loginauth', { data })
+                .then((res) => {
+                    if (res.status === 200) {
+                        sessionStorage.setItem('userData', JSON.stringify(res.data));
+                        
+                        // const name = res.data
+                        // console.log(name)
+                        // navigate('/homepage',{state:{name}})
+                        navigate('/homepage')
+                    }
+                    else if(res.status==201){
+                        sessionStorage.setItem('admin_id', res.data);
+                        navigate('/admindashboard')
+                    }
+                })
+                .catch((error) => {
+                    alert(error.response.data);
+                });
+        }
     /*LOGIN SIGNUP FRONTEND*/
     return (
         <div>
@@ -134,6 +137,20 @@ const LoginSignUp = () => {
                                                 <div className="form_input-field-container">
                                                     <img src={LastNameIcon} alt="" className='icon' />
                                                     <input type="text" placeholder='Enter Here' name = 'lname' className='signUp_form-input-tweaks'onChange = {handleChange} required />
+                                                </div>
+                                            </div>
+                                            <div className="LoginForm-input-field">
+                                                <label htmlFor="/" className='signUp_form-label-tweaks'>CNIC</label>
+                                                <div className="form_input-field-container">
+                                                    <img src={LastNameIcon} alt="" className='icon' />
+                                                    <input type="text" placeholder='Enter Here' name = 'cnic' className='signUp_form-input-tweaks'onChange = {handleChange} required />
+                                                </div>
+                                            </div>
+                                            <div className="LoginForm-input-field">
+                                                <label htmlFor="/" className='signUp_form-label-tweaks'>Contact Number</label>
+                                                <div className="form_input-field-container">
+                                                    <img src={LastNameIcon} alt="" className='icon' />
+                                                    <input type="tel" placeholder='Enter Here' name = 'tel_no' className='signUp_form-input-tweaks'onChange = {handleChange} required />
                                                 </div>
                                             </div>
                                             <div className="LoginForm-input-field">

@@ -1,30 +1,31 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import NavBar from '../../components/Navbar/Navbar'
-import LandingScreenVideo from '../assets/LandingScreen_video.mp4'
-import './Homepage.css'
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 
+import Navbar from '../../components/Navbar/Navbar'
+import Footer from '../../components/Footer/Footer'
+import './Homepage.css'
 
 const Homepage = () => {
-  // axios.defaults.withCredentials = true
+
   const username = JSON.parse(sessionStorage.getItem('userData')).customer_name;
-  console.log(JSON.parse(sessionStorage.getItem('userData')))
+
+
 
   return (
     <div>
-      <NavBar className='navbar_landingScreen'/>
       {/* LANDING SCREEN */}
-      <section className="Landing_screen-hero-container">
-        <div className='Landing_screen-main-container'>
-          <video className="Landing_screen-BackgroundVideo" autoPlay muted preload='auto'>
-            <source src={LandingScreenVideo} type="video/mp4" />
+      <div className="homepage_landing-screen-main_container">
+        <div className="homepage_background-video-container">
+          <video className='homepage_video' autoPlay muted>
+            <source src={require('../assets/LandingScreen_video.mp4')} />
           </video>
-          <div className="Landing-screen-content-container">
+        </div>
+        <Navbar className='navbar_viewcar' />
+        <div className="Landing-screen-content-container">
             <div className="landing_screen-heading-container">
+
               <h1 style={{ fontSize: '42px', marginBottom: '20px' }}>Welcome,</h1>
               <h1>{username}</h1>
+
             </div>
             <div className="Landing-screen_button-container">
               <button className="landing_screen-get-started">
@@ -34,17 +35,33 @@ const Homepage = () => {
                 <span className="button-text">Get Started</span>
               </button>
             </div>
-            <div className="copyright">
-              <p>Content from ExoticaRides LLC, including its affiliates, is for general information only. None of the provided information is intended as investment advice. Use the company's website information at your own risk; the company assumes no responsibility or liability for any use or misuse of such information.</p>
-              <p style={{ color: 'white' }}>&copy; 2023 ExoticaRides LLC | All rights reserved.</p>
-            </div>
+          </div>
+      </div>
+      {/* ABOUT US */}
+      <div className="homepage_about_us-main-container">
+        <div className="about_us-content-container">
+          <div className="about_us-heading-container">
+            <h1>OUR <span style={{color:"#05c1ae"}}>JOURNEY</span></h1>
+          </div>
+          <div className="about_us-details-container">
+            <p>Welcome to Exotica Rides, where luxury and adventure converge on the open road. At Exotica Rides, we redefine the driving experience by offering a fleet of meticulously curated, high-performance vehicles that cater to the most discerning tastes. Whether you're seeking the thrill of a powerful sports car, the elegance of a luxury sedan, or the versatility of an SUV, Exotica Rides has the perfect ride for every occasion. <br />
+              <br />
+              Our commitment to excellence extends beyond the vehicles we provide. We take pride in delivering exceptional customer service, ensuring that your journey with Exotica Rides is as seamless and enjoyable as the cars we offer. Our team is dedicated to meeting and exceeding your expectations, making your car rental experience with us unforgettable. <br />
+              <br />
+            At Exotica Rides, we believe in more than just transportation; we believe in creating memories. Whether it's a weekend getaway, a special event, or a business trip, our fleet is designed to elevate every moment. Join us on the road to sophistication, style, and unparalleled driving pleasure. Your adventure begins with Exotica Rides—where every ride is an experience.
+            </p>
+            <h3>Elevating Journeys, Redefining Luxuries</h3>
           </div>
         </div>
-      </section>
-      {/* ABOUT US SCREEN */}
+        {/* USELESS AS MY LIFE */}
+        <div className="about_us-image-container"></div>
+      </div>
+      <div className="Footer-hero-container">
+        <Footer/>
+      </div>
     </div>
   );
 };
 
 
-export default Homepage
+      export default Homepage

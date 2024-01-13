@@ -90,7 +90,6 @@ const ViewCars = () => {
           <h1>YOUR JOURNEY, <span style={{ color: '#05c1ae' }}>YOUR WAY.</span></h1>
           <h5>select your signature ride from our fleet.</h5>
         </div>
-
         <div className="container-fluid">
           <div className="row cars_main-row">
             {/* CARS CARD CONTAINER */}
