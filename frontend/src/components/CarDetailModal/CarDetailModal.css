@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+.custom-width {
+    max-width: 600px; /* Set your custom width here */
+    width: 100%;
+}
+
+.modal-title{
+    width: 100%;
+    font-family: 'Comfortaa';
+    font-size: 22px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+.add-car-row-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.addCar-field-container{
+    width: 100%;
+}
+
+.addCar-field-container label{
+    font-family: 'Comfortaa';
+    font-size: 14px;
+}
+
+.addCar-field-container input{
+    outline: none;
+}
+
+input[type="file"]{
+    font-size: 11px;
+    height: 100%;
+    box-shadow: rgb(32, 56, 161) 0 0 8px;
+}
+input::file-selector-button {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(32, 56, 161);
+    border: thin solid grey;
+    border-radius: 3px;
+}
+
+.CarModal-submit-button {
+    padding: 10px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(32, 56, 161) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  .CarModal-submit-button:hover {
+    letter-spacing: 3px;
+    background-color: rgb(32, 56, 161);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(32, 56, 161) 0px 5px 10px 0px;
+  }
+  
+  .CarModal-submit-button:active {
+    letter-spacing: 3px;
+    background-color: rgb(32, 56, 161);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(32, 56, 161) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 100ms;
+  }

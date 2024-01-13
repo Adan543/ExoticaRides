@@ -9,13 +9,13 @@ import './ViewCars.css';
 
 const ViewCars = () => {
 
-  const [data,setData] = useState([])
+  const [data, setData] = useState([])
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
 
 
-  
+
   //USESTATE FOR FILTER RANGE SLIDERS
   const [Year, setYear] = useState([2000, 2024])
   const [Price, setPrice] = useState([1500, 5000])
@@ -23,7 +23,7 @@ const ViewCars = () => {
   //TO HANDLE PAGE NUMBERS
   // const [Cars, SetCars] = useState(data);
 
-  const [PageNumber , SetPageNumber] = useState(0);
+  const [PageNumber, SetPageNumber] = useState(0);
 
   const CarsPerPage = 6
   const TotalCarsViewed = PageNumber * CarsPerPage
@@ -65,7 +65,7 @@ const ViewCars = () => {
 
   //DESTRUCTURE PAGINATION AND CHANGE PAGE FUNCTION
 
-  const ChangePage = ({selected}) => {
+  const ChangePage = ({ selected }) => {
     SetPageNumber(selected)
   }
   const handleSearch = (event) => {
@@ -96,8 +96,8 @@ const ViewCars = () => {
             <div className="col-lg-8 cars_card-main-container">
               {displayCars}
               <ReactPaginate
-                previousLabel = {"<<"}
-                nextLabel = {">>"}
+                previousLabel={"<<"}
+                nextLabel={">>"}
                 pageCount={Math.ceil(cars.length / CarsPerPage)}
                 onPageChange={ChangePage}
                 containerClassName='PaginationContainer'
@@ -106,68 +106,51 @@ const ViewCars = () => {
               />
             </div>
             {/* SEARCH FILTER CARD CONTAINER */}
-            <div className="col-lg-4 filters_card-main-container" style={{padding: "50px"}}>
+            <div className="col-lg-4 filters_card-main-container" style={{ padding: "50px" }}>
               <div className="filter_card-hero-container">
-                <div className="filter_card-heading-container" style={{display:'flex', justifyContent:'center', marginBottom:'10px'}}>
+                <div className="filter_card-heading-container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
                   <h1>Search your Ride</h1>
                 </div>
                 <div className="filter_fields-container">
                   <label htmlFor="/">Car Name</label>
                   <input
-          type="text"
-          placeholder="Search by name"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
+                    type="text"
+                    placeholder="Search by name"
+                    value={searchTerm}
+                    onChange={handleSearch}
+                  />
                 </div>
                 <div className="filter_fields-container">
-        <label htmlFor="/">Year Range</label>
-        <Slider
-          className="RangeSlider"
-          onChange={(value) => setYear(value)}
-          value={Year}
-          min={2000}
-          max={2024}
-        />
-        <div className="year_range-display-container">
-          <div className="value">
-            <span className="rangeSlider_value-display">{Year[0]}</span>
-            <span className="rangeSlider_value-display">{Year[1]}</span>
-          </div>
-        </div>
-      </div>
+                  <label htmlFor="/">Year Range</label>
+                  <Slider
+                    className="RangeSlider"
+                    onChange={(value) => setYear(value)}
+                    value={Year}
+                    min={2000}
+                    max={2024}
+                  />
+                  <div className="year_range-display-container">
+                    <div className="value">
+                      <span className="rangeSlider_value-display">{Year[0]}</span>
+                      <span className="rangeSlider_value-display">{Year[1]}</span>
+                    </div>
+                  </div>
+                </div>
                 <div className="filter_fields-container">
-        <label htmlFor="/">Price Range</label>
-        <Slider
-          className="RangeSlider"
-          onChange={(value) => setPrice(value)}
-          value={Price}
-          min={1500}
-          max={5000}
-          step={100}
-        />
-        <div className="price_range-display-container">
-          <div className="value">
-            <span className="rangeSlider_value-display">{Price[0] + '$'}</span>
-            <span className="rangeSlider_value-display">{Price[1] + '$'}</span>
-          </div>
-        </div>
-      </div>
-                <div className='filter_fields-container'>
-                  <label htmlFor="/">Car Type</label>
-                  <div className="car_type-button-container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-                    <button className='car_type-BTN' 
-                      onClick={HandleClick}
-                      style={{backgroundColor: isClicked ? 'red': "transparent"}}
-                    >
-                      <img src={require('../assets/sedan-car-model.png')} alt="" />
-                    </button>
-                    <button className='car_type-BTN'>
-                      <img src={require('../assets/convertible-car-model.png')} alt="" />
-                    </button>
-                    <button className='car_type-BTN'>
-                      <img src={require('../assets/crossover-car-model.png')} alt="" />
-                    </button>
+                  <label htmlFor="/">Price Range</label>
+                  <Slider
+                    className="RangeSlider"
+                    onChange={(value) => setPrice(value)}
+                    value={Price}
+                    min={1500}
+                    max={5000}
+                    step={100}
+                  />
+                  <div className="price_range-display-container">
+                    <div className="value">
+                      <span className="rangeSlider_value-display">{Price[0] + '$'}</span>
+                      <span className="rangeSlider_value-display">{Price[1] + '$'}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -175,7 +158,7 @@ const ViewCars = () => {
           </div>
         </div>
       </div>
-      
+
     </div>
   )
 }

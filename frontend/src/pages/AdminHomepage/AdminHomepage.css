@@ -1,6 +1,7 @@
 .admin_dashboard-hero-container{ 
     position: relative;
-    height: 100vh;   
+    height: 100vh;  
+    padding: 20px; 
 }
 
 .admin_dashboard-hero-container::before{
@@ -14,53 +15,18 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    filter: brightness(50%);
+    filter: brightness(80%);
     z-index: -1;
 }
 
 .admin-block-main-heading-container{
     display: flex; 
     justify-content: center; 
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin: 30px 0px;
 }
 
 #admin_block-main-heading{
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     font-size: 2.5rem;
-}
-
-.each_count-container{
-    position: relative;
-    top: 0;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    transition: 0.3s all ease-in-out;
-}
-
-.each_count-container:hover{
-    top: -15px;
-}
-
-.each_count-container:hover #count_data-container{
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-#count_data-container{
-    height: 160px; 
-    margin-top: -40px; 
-    width: 330px;
-    padding: 50px; 
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: rgba(255, 255, 255, 0.5) 0px 2px 6px, rgba(255, 255, 255, 0.5) 0px 2px 6px;
-    backdrop-filter: blur(5px);
-    transition: 0.3s all ease-in-out;
-}
-
-#customer-count-h1{
-    color: white;
-    font-family: 'Montserrat';
-    font-weight: 600;
 }

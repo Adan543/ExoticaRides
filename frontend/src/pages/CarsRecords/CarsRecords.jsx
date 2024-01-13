@@ -1,18 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AddCarModal from '../../components/CarDetailModal/CarDetailModal'
+import CarUpdateModalABC from '../../components/CarDetailModal/CarUpdateModal'
 
 const CarsRecords = () => {
   const CarRecord = [
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
-    {car_name:'911 Carrera S', manufacturer:'Porsche', manufacture_year:'2018', engine_cc:'3000cc', transmission:'automatic', car_type:'sedan', car_rate:'500', },
+    { car_name: 'Bhangi', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', },
+    { car_name: '911 Carrera S', manufacturer: 'Porsche', manufacture_year: '2018', engine_cc: '3000cc', transmission: 'automatic', car_type: 'sedan', car_rate: '500', }]
 
-  ]
+  const [CarModalToggle, SetCarModalToggle] = useState(false);
+  const [CarUpdateModal, SetCarUpdateModal] = useState(false);
+  const [selectedCar, setSelectedCar] = useState("nothing");
+
+  const OpenCarModal = () => {
+    SetCarModalToggle(true)
+  }
+
+  const CloseCarModal = () => {
+    SetCarModalToggle(false)
+  }
+
+  //ADD CAR HANDLE SUBMIT
+  const handleSubmitAddCar = (e) => {
+    e.preventDefault();
+    //BACKEND IDHR AYEGI
+    console.log("Form Submitted")
+    CloseCarModal()
+  }
+
+  const OpenUpdateCarModal = (car) => {
+    setSelectedCar(car);
+    SetCarUpdateModal(true)
+  }
+
+  const CloseCarUpdateModal = () => {
+    SetCarUpdateModal(false)
+  }
+
+  //UPDATE CAR HANDLE SUBMIT
+  const handleSubmitUpdateCar = (e) => {
+    e.preventDefault();
+    //BACKEND IDHR AYEGI
+    console.log("Form Updated")
+    CloseCarModal()
+  }
+
+
   return (
     <div>
       <div class="header-hero-container" style={{ position: "sticky-top" }}>
@@ -22,7 +61,7 @@ const CarsRecords = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <hr style={{ width: "10%", margin: "auto", marginTop: "10px", border: "2px solid #9BA4B5", borderRadius: "30px", opacity: "1" }} />
         </div>
-        <form>
+        <div>
           <div class="search_field-main-container">
             <div class="each_search_field-container">
               <img className='search-icon' src={require('../assets/search.png')} alt="" />
@@ -39,11 +78,14 @@ const CarsRecords = () => {
           </div>
           <div class="search_btn-container">
             <input type="submit" value="Search" class="search_btn" />
+            <button onClick={OpenCarModal} class="search_btn">Add Car</button>
+            {/*Rende AddCarModal */}
+            <AddCarModal
+              isOpen={CarModalToggle}
+              onClose={CloseCarModal}
+              handleSubmit={handleSubmitAddCar} />
           </div>
-          <div class="search_btn-container">
-            <input type="submit" value="Search" class="search_btn" />
-          </div>
-        </form>
+        </div>
       </div>
       <div class="user_table-container" style={{ display: "flex", justifyContent: "center", padding: "50px" }}>
         <table width="100%" style={{ borderCollapse: "collapse" }}>
@@ -59,19 +101,24 @@ const CarsRecords = () => {
               <th>Car Type</th>
               <th>Transmission</th>
               <th>Car Rate</th>
+              <th>Operations</th>
             </tr>
           </thead>
           <tbody>
             {CarRecord.length > 0 ? (
-              CarRecord.map((card_record, index) => (
+              CarRecord.map((car_record, index) => (
                 <tr key={index} className="records" style={{ transition: '0.3s all ease-in-out' }}>
-                  <td>{card_record.car_name}</td>
-                  <td>{card_record.manufacturer}</td>
-                  <td>{card_record.manufacture_year}</td>
-                  <td>{card_record.engine_cc}</td>
-                  <td>{card_record.car_type}</td>
-                  <td>{card_record.transmission}</td>
-                  <td>{card_record.car_rate}</td>
+                  <td>{car_record.car_name}</td>
+                  <td>{car_record.manufacturer}</td>
+                  <td>{car_record.manufacture_year}</td>
+                  <td>{car_record.engine_cc}</td>
+                  <td>{car_record.car_type}</td>
+                  <td>{car_record.transmission}</td>
+                  <td>{car_record.car_rate}</td>
+                  <td style={{ display: 'flex', justifyContent: 'center', gap: "10px" }}>
+                    <button onClick={() => OpenUpdateCarModal(car_record)} className='update_del-btn'>Update</button>
+                    <button className='update_del-btn'>Delete</button>
+                  </td>
                 </tr>
               ))
             ) : (
@@ -82,6 +129,15 @@ const CarsRecords = () => {
           </tbody>
         </table>
       </div>
+      {/* Render CarUpdateModal */}
+      {selectedCar && (
+        <CarUpdateModalABC
+          isOpen={CarUpdateModal}
+          onClose={CloseCarUpdateModal}
+          car_record={selectedCar}
+          handleSubmit={handleSubmitUpdateCar}
+        />
+      )}
     </div>
   )
 }

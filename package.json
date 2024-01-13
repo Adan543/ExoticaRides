@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "adan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react-datepicker": "^4.25.0",
+    "react-paginate": "^8.2.0"
+  }
 }

@@ -1,23 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
 @keyframes fadeInCard {
     0% {
         opacity: 0;
         transform: translateY(-50px);
     }
-  
+
     100% {
         opacity: 1;
         transform: translateX(0px);
     }
-  }
-
-.adminCard_hero-container{
-    animation: fadeInCard 2s forwards;
-    width: 330px;
-    height: 280px;  
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
 }
 
+/*CARD CSS*/
+.card-wrap {
+    animation: 2s fadeInCard forwards;
+}
+
+.card-wrap {
+    width: 330px;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 2px 6px, rgba(255, 255, 255, 0.5) 0px 2px 6px;
+    backdrop-filter: blur(5px);
+    box-shadow: rgba(255, 255, 255, 0.5) 0px 2px 6px, rgba(255, 255, 255, 0.5) 0px 2px 6px;
+    cursor: pointer;
+}
+
+.card-header {
+    height: 160px;
+    width: 100%;
+    background: rgb(85, 88, 255);
+    background: linear-gradient(0deg, rgba(85, 88, 255, 1) 0%, rgba(0, 192, 255, 1) 100%);
+    border-radius: 100% 0% 100% 0% / 0% 50% 50% 100% !important;
+    display: grid;
+    place-items: center;
+
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-family: 'Comfortaa', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 22px;
+    margin-top: 18px;
+    margin-bottom: 20px;
+}
+
+/*CARD LINK CSS*/
+.cta {
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Comfortaa';
+}
+
+.cta:hover {
+    text-decoration: none;
+}
+
+.cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    color: white;
+}
+
+.cta svg {
+    transform: translateX(-15px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+}
