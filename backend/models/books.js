@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      books.hasOne(models.customer, { foreignKey: 'customer_user_id' });
-      books.hasOne(models.car, { foreignKey: 'license_no' });
+      books.belongsTo(models.customer, { foreignKey: 'customer_user_id' });
+      books.belongsTo(models.car, { foreignKey: 'license_no' });
     }
   }
   books.init({
@@ -19,10 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       primaryKey: true
   },
-    license_no: DataTypes.STRING,
-    booking_date: DataTypes.STRING,
-    due_date: DataTypes.STRING,
-    return: DataTypes.DATE
+    license_no: {type:DataTypes.STRING,primaryKey:true},
+    booking_date: {type:DataTypes.DATE, primaryKey: true},
+    due_date: {type:DataTypes.DATE,allowNull: false},
+    return_date: DataTypes.DATE,
+    deliver_location:{type:DataTypes.STRING,allowNull: false}
   }, {
     sequelize,
     timestamps:false,

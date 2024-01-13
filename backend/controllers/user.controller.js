@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const validator = require('validator');
 const BaseController = require('./base.controller');
 
+
 module.exports = class userController extends BaseController {
 
 
@@ -12,30 +13,6 @@ module.exports = class userController extends BaseController {
 
     }
 
-async getuser (req, res) {
-    const user_credentials = db['user_credential'];
-    const user = db['user'];
-    const customer = db['customer'];
-    const result = await user_credentials.findOne({
-        where: { email: 'karimjawwad1@gmail.com' },
-        include: [
-          {
-            model: user,
-            attributes: ['user_id'],
-            include: [
-              {
-                model: customer,
-                attributes: ['customer_name'],
-                foreignKey: 'customer_user_id',
-              },
-            ],
-          },
-        ],
-      })
-      console.log(result)
-      res.send(result.user.customer.customer_name)
-    
-}
 async login_user(req, res) {
     const userCredentials = db.user_credential;
 
@@ -49,7 +26,22 @@ async login_user(req, res) {
             const passwordMatch = await bcrypt.compare(req.body.data.password[0], storedPassword);
 
             if (passwordMatch) {
-                res.status(200).send('Login successful!');
+                const user_db = db.user
+                const customer = db.customer
+                const user = await user_db.findOne({where:{email:req.body.data.email[0]}})
+                const user_id = user.user_id
+                const telephone = db.telephone
+                const customerData = await customer.findByPk(user_id, {
+                    include: [{ model: telephone, attributes: ['tel_no']}],
+                  });
+                  if(customerData){
+                    console.log(customerData)
+                res.status(200).send(customerData)   
+                  }
+                  else{
+                    res.status(201).send(user_id)
+                  }
+               
             } else {
                 res.status(404).send('Wrong Password');
             }
@@ -66,23 +58,41 @@ async login_user(req, res) {
 
 async createuser(req, res) {
     const user_credentials = db.user_credential;
-    // Input validation
-
-    // Validate email
-
-    if (!validator.isAlpha(req.body.data.fname[0]) || !validator.isAlpha(req.body.data.lname[0])) {
-        return res.status(400).send('First name and last name must only contain alphabetic characters');
-    }
-    if (!validator.isEmail(req.body.data.email[0])) {
-        return res.status(400).send(`Invalid Email Format. Add ".com" in the end.`);
-    }
-
-    // Validate password
-    if (!validator.isLength(req.body.data.password[0], { min: 6 })) {
-        return res.status(400).send('Password must be at least 6 characters long');
-    }
-
-    // Validate first name and last name
+    const isValidCNIC = (cnic) => {
+        // CNIC format: 12345-1234567-1
+        const cnicRegex = /^[0-9]{5}-[0-9]{7}-[0-9]$/;
+        return cnicRegex.test(cnic);
+      };
+      
+      const isValidContactNumber = (contactNumber) => {
+        // Contact number format: 03xx-xxxxxxx or +923xx-xxxxxxx
+        const contactNumberRegex = /^(03[0-9]{2}-[0-9]{7}|\+923[0-9]{2}-[0-9]{7})$/;
+        return contactNumberRegex.test(contactNumber);
+      };
+      
+      // Your existing validation code
+      
+      if (!validator.isAlpha(req.body.data.fname[0]) || !validator.isAlpha(req.body.data.lname[0])) {
+          return res.status(400).send('First name and last name must only contain alphabetic characters');
+      }
+      
+      if (!validator.isEmail(req.body.data.email[0])) {
+          return res.status(400).send(`Invalid Email Format. Add ".com" in the end.`);
+      }
+      
+      if (!validator.isLength(req.body.data.password[0], { min: 6 })) {
+          return res.status(400).send('Password must be at least 6 characters long');
+      }
+      
+      // Additional CNIC validation
+      if (!isValidCNIC(req.body.data.cnic[0])) {
+          return res.status(400).send('Invalid CNIC format');
+      }
+      
+      // Additional contact number validation
+      if (!isValidContactNumber(req.body.data.tel_no[0])) {
+          return res.status(400).send('Invalid contact number format');
+      }
     
 
     try {
@@ -129,7 +139,7 @@ async createuser(req, res) {
             const customer = db.customer;
             const data3 = {
                 customer_user_id: newUser.user_id,
-                customer_name: req.body.data.fname[0] + ' ' + req.body.data.lname[0],
+                customer_name: req.body.data.fname[0] + ' ' + req.body.data.lname[0],CNIC:req.body.data.cnic[0]
             };
 
             // Step 3: Create customer
@@ -137,6 +147,13 @@ async createuser(req, res) {
 
             console.log('Customer created successfully');
 
+            const telnum = db.telephone;
+            const data4 = {
+                customer_user_id: newUser.user_id,tel_no:req.body.data.tel_no[0]
+            }
+            await telnum.create(data4, { transaction });
+
+            console.log('Telephone created successfully');
             // Commit the transaction if all steps are successful
             await transaction.commit();
             res.status(200).send('Sign Up Successfully');
@@ -155,9 +172,7 @@ async createuser(req, res) {
     }
 }
 
-
-
-
+}
 
 
 
@@ -455,4 +470,3 @@ async createuser(req, res) {
 
 
     
-}
