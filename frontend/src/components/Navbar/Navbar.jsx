@@ -24,14 +24,10 @@ const Navbar = ({className = ""}) => {
                             <Link className="nav-link" to="/viewcars">Garage</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/bookings">Booking</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to="/records">Records</Link>
                         </li>
                     </ul>
                 </div>
-                
             </nav>
         </div>
     )
