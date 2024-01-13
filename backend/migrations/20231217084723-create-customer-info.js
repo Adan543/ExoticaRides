@@ -12,12 +12,12 @@ module.exports = {
           key: 'user_id'
         }
       },
-      CNIC: {
+      CNIC: {allowNull:false,
         type: Sequelize.STRING
       },
-      address: {
-        type: Sequelize.STRING
-      },
+      // address: {
+      //   type: Sequelize.STRING
+      // },
       customer_name: {
         type: Sequelize.STRING
       }

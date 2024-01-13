@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // car_info.belongsTo(models.car, { foreignKey: 'car_name' });
-      car_info.belongsTo(models.car);
+      car_info.hasOne(models.car, { foreignKey: 'car_name' });
+      
     }
   }
   car_info.init({
@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     engine_cc: DataTypes.STRING,
     transmission: DataTypes.STRING,
     color:DataTypes.STRING,
+    available:DataTypes.STRING,
     car_rate: DataTypes.INTEGER
   }, {
     sequelize,

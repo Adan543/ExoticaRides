@@ -9,17 +9,26 @@ import HomePage from './pages/HomePage/Homepage';
 import BookingPage from './pages/BookingsPage/Bookings';
 import ViewCarsPage from './pages/ViewCarsPage/ViewCars';
 import RecordsPage from './pages/RecordsPage/Records';
+import UserRecords from './pages/UserRecords/UserRecords';
+import CarsRecords from './pages/CarsRecords/CarsRecords';
+import BookingRecords from './pages/BookingRecords/BookingRecords'
 
 //ROUTING WEBSITE IMPORTS
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import AdminHomepage from './pages/AdminHomepage/AdminHomepage';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>
+  },
+  {
+    path: "/admin_dashboard",
+    element: <AdminHomepage/>
   }
   ,
   {
@@ -40,7 +49,20 @@ const router = createBrowserRouter([
   {
     path: "records",
     element: <RecordsPage/>
+  },
+  {
+    path:"user_records",
+    element: <UserRecords/>
+  },
+  {
+    path:"car_records",
+    element: <CarsRecords/>
+  },
+  {
+    path:"booking_records",
+    element: <BookingRecords/>
   }
+
 ]
 )
 

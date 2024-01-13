@@ -23,6 +23,7 @@ module.exports = {
       },
       booking_date: {
         allowNull: false,
+        primaryKey:true,
         type: Sequelize.DATE,
         defaultValue: new Date()
       },
@@ -30,8 +31,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      return: {
+      return_date: {
         type: Sequelize.DATE
+      },
+      
+      deliver_location: {
+        allowNull:false,
+        type: Sequelize.STRING
       }
     });
   },

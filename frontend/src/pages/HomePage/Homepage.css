@@ -23,7 +23,7 @@
 @keyframes fadeInBTN {
     0% {
         opacity: 0;
-        transform: translateY(150px);
+        transform: translateY(80px);
     }
 
     100% {
@@ -33,30 +33,38 @@
 }
 
 /*LANDING SCREEN CSS START*/
-.Landing_screen-main-container{
+
+.homepage_landing-screen-main_container {
+    height: 100vh;
     position: relative;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.Landing_screen-BackgroundVideo {
-    position: relative;
-    z-index: 0;
-    width: 100vw;
-    height: 92vh;
+.homepage_background-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.homepage_video {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.Landing-screen-content-container{
+.Landing-screen-content-container {
     position: absolute;
-    height: 75%;
-    top: 20%;
-    left: 4%;
+    height: 60%;
+    top: 30%;
+    left: 5%;
     z-index: 1;
 }
 
-.Landing-screen-content-container h1 {
+.Landing-screen-content-container h1{
     opacity: 0;
     color: white;
     animation: fadeInUserName 2s forwards;
@@ -66,21 +74,9 @@
     font-size: 65px;
 }
 
-.Landing-screen_button-container {
+.Landing-screen_button-container{
     position: absolute;
     top: 50%;
-}
-
-.copyright{
-    opacity: 0;
-    animation: fadeInBTN 2s forwards;
-    animation-delay: 2s;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    left: 32%;
-    color: rgb(118, 118, 118);
 }
 
 /*DONT TOUCH THIS CODE */
@@ -103,7 +99,7 @@
     height: auto;
 }
 
-.landing_screen-get-started  .circle {
+.landing_screen-get-started .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     box-shadow: 0 0 5px 1px white;
     position: relative;
@@ -174,4 +170,56 @@
 /*DONT TOUCH THIS CODE ENDS*/
 
 /*LANDING SCREEN CSS END*/
+.homepage_about_us-main-container{
+    background-image: url('../assets/about_us-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 90vh;
+    width: 100%;
+}
+
+.about_us-content-container{
+    width: calc(50% - 40px);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about_us-content-container h1{
+    font-family: 'AkiraExpanded';
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.about_us-details-container{
+    padding: 20px 55px;
+    text-align: justify;
+    color: white;
+    font-family: 'Comfortaa';
+    font-style: italic;
+    font-size: 14px;
+
+}
+
+.about_us-details-container h3{
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Allura';
+    
+}
+
+.about_us-image-container{
+    width: calc(50% + 40px);
+    height:  100%;
+    border-left: 100px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 90vh solid transparent;
+    box-sizing: border-box;
+}
+
 

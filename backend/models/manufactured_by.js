@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      manufactured_by.belongsTo(models.company, { foreignKey: 'company_id' });
+      manufactured_by.belongsTo(models.car, { foreignKey: 'license_no' });
     }
   }
   manufactured_by.init({
@@ -19,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
   },
     company_id: DataTypes.INTEGER,
-    manufactured_by:DataTypes.INTEGER
+    manufacture_year:DataTypes.INTEGER
   }, {
     sequelize,
     timestamps:false,

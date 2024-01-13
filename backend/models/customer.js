@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       customer.belongsTo(models.user, { foreignKey: 'customer_user_id' });
       // customer.belongsTo(models.user);
       customer.belongsTo(models.keeps_track_of, { foreignKey: 'customer_user_id' });
-      customer.belongsTo(models.books, { foreignKey: 'customer_user_id' });
+      customer.hasOne(models.books, { foreignKey: 'customer_user_id' });
+      customer.hasOne(models.telephone,{ foreignKey: 'customer_user_id' })
     }
   }
   customer.init({
@@ -22,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
   },
     CNIC: DataTypes.STRING,
-    address: DataTypes.STRING,
+    // address: DataTypes.STRING,
     customer_name: DataTypes.STRING
   }, {
     sequelize,

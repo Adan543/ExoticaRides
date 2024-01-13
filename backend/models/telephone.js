@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true
   },
     tel_no: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       primaryKey: true
   },
   }, {

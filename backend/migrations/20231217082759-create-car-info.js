@@ -20,6 +20,9 @@ module.exports = {
       color: {
         type: Sequelize.STRING
       },
+      available:{
+        type:Sequelize.STRING
+      },
       car_rate: {
         type: Sequelize.INTEGER
       }
